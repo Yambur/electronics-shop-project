@@ -67,3 +67,9 @@ class Item:
                 return int(string_num)
         except ValueError:
             return 0
+
+    def __repr__(self) -> str:
+        return f"Item('{self.name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f'{self.name}'
