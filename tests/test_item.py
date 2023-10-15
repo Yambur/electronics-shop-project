@@ -19,6 +19,7 @@ def test_apply_discount():
     item1.apply_discount()
     assert item1.price == 8000.0
 
+
 def test_instantiate_from_csv(tmp_path):
     csv_data = "name,price,quantity\nitem1,10.0,5\nitem2,20.0,3"
     file_path = tmp_path / "test_data.csv"
@@ -27,6 +28,7 @@ def test_instantiate_from_csv(tmp_path):
     items = Item.instantiate_from_csv(file_path)
     assert len(items) == 2
     assert len(Item.all) == 2
+
 
 def test_string_to_number():
     assert Item.string_to_number("123") == 123
