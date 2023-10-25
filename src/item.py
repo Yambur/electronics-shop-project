@@ -35,6 +35,11 @@ class Item:
         """
         self.price *= self.pay_rate
 
+    def __add__(self, other):
+        if isinstance(other, Item):
+            return self.quantity + other.quantity
+        raise TypeError("Складывать можно только объекты классов с родительским классом Item")
+
     @property
     def name(self):
         return self.__name
