@@ -19,7 +19,7 @@ class KeyboardLayoutMixin:
     def language(self, value):
         if value not in ["EN", "RU"]:
             raise AttributeError("Скажем другому языку - НЕ СЕГОДНЯ!")
-        self._language = value
+        self.__language = value
 
 
 class Keyboard(Item, KeyboardLayoutMixin):
