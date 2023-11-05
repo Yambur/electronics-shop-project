@@ -1,3 +1,4 @@
+from src.error_classes import InstantiateCSVError
 from src.item import Item
 import pytest
 
@@ -65,3 +66,18 @@ def test_add_item(item1_quantity, item2_quantity, expected_result):
     with pytest.raises(TypeError):
         # Попробуйте сложить Item с чем-то другим
         item1 + "some_string"
+
+
+def test_instantiate_from_csv_error():
+    error = InstantiateCSVError()
+    assert error.args == ()
+    assert str(error) == 'Миша всё фигня! Давай сначала!'
+
+def test_instantiate_from_csv_none_exist_file():
+    result = Item.instantiate_from_csv('random.csv')
+    assert result == None
+
+
+def test_instantiate_from_csv_broken_file():
+    result = Item.instantiate_from_csv('items2.csv')
+    assert result == None
